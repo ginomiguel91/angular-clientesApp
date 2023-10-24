@@ -7,7 +7,8 @@ import { ShowClienteComponent } from './pages/show-cliente/show-cliente.componen
 import { AddClienteComponent } from './pages/add-cliente/add-cliente.component';
 import { MaterialModule } from '../material/material.module';
 import { CardClienteComponent } from './components/card-cliente/card-cliente.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchEmailInputComponent } from './components/search-email-input/search-email-input.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     ShowClienteComponent,
     AddClienteComponent,
     CardClienteComponent,
+    SearchEmailInputComponent,
   ],
   imports: [
     CommonModule,
     ClienteRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
-  exports: [CardClienteComponent],
+  exports: [CardClienteComponent, SearchEmailInputComponent],
 })
 export class ClienteModule {}

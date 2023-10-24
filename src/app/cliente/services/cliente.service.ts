@@ -34,4 +34,8 @@ export class ClienteService {
     const url = `${this._baseUrl}/clientes/${cliente.id}`;
     return this.http.put<Cliente>(url, cliente);
   }
+  getByEmail(email: string): Observable<ClienteAll> {
+    const url = `${this._baseUrl}/clientes/${email}`;
+    return this.http.get<ClienteAll>(url);
+  }
 }

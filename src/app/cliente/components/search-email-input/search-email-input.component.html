@@ -1,0 +1,14 @@
+<form (ngSubmit)="buscar()" autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input
+      name="termino"
+      [(ngModel)]="termino"
+      (input)="teclaPresionada()"
+      [placeholder]="placeholder"
+      type="email"
+      matInput
+      placeholder="Ex. pat@example.com"
+    />
+  </mat-form-field>
+</form>

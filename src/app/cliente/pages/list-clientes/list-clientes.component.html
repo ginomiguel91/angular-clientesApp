@@ -1,5 +1,9 @@
 <h1>Lista de Clientes</h1>
 <mat-divider></mat-divider>
+<app-search-email-input
+  (onEnter)="buscar($event)"
+  placeholder="Buscar por email"
+></app-search-email-input>
 <table
   mat-table
   [dataSource]="clientes"

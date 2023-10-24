@@ -20,4 +20,17 @@ export class ListClientesComponent implements OnInit {
       error: (err) => {},
     });
   }
+  email: string = '';
+  buscar(termino: string) {
+    this.email = termino;
+    this.clienteService.getByEmail(this.email).subscribe({
+      next: (res) => {
+        this.clientes = [];
+        this.clientes.push(res.clienteDto);
+      },
+      error: (err) => {
+        this.clientes = [];
+      },
+    });
+  }
 }
