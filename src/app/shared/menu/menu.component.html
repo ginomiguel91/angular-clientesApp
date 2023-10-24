@@ -1,0 +1,17 @@
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button
+    routerLinkActive="active"
+    mat-menu-item
+    *ngFor="let enlace of menuItems"
+    [routerLink]="[enlace.ruta]"
+  >
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      [fontIcon]="enlace.icon"
+    ></mat-icon>
+
+    {{ enlace.texto }}
+  </button>
+</mat-menu>

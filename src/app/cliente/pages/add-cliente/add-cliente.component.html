@@ -1,0 +1,71 @@
+<h1>{{ clienteNew.id ? "Editar" : "Agregar" }} Cliente</h1>
+<mat-divider></mat-divider>
+<form [formGroup]="clienteForm" (ngSubmit)="guardar()" autocomplete="off">
+  <div class="row">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="" formControlName="nombre" />
+      <mat-error *ngIf="fieldRequiredError('nombre')">
+        El campo nombre es requerido !
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="example-full-width">
+      <mat-label>Apellido</mat-label>
+      <input matInput placeholder="" formControlName="apellido" />
+      <mat-error *ngIf="fieldRequiredError('apellido')">
+        El campo apellido es requerido !
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="email"
+        placeholder="Ex. pat@example.com"
+      />
+
+      <mat-error
+        *ngIf="fieldValidEmail('email') && !fieldRequiredError('required')"
+      >
+        Por favor ingrese una dirección válida de correo
+      </mat-error>
+      <mat-error *ngIf="fieldRequiredError('email')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field>
+      <mat-label>createAt</mat-label>
+      <input formControlName="createAt" matInput [matDatepicker]="createAt" />
+
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="createAt"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #createAt></mat-datepicker>
+      <mat-error *ngIf="fieldRequiredError('createAt')">
+        El campo createAt es requerido !
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="example-button-row">
+    <button type="submit" mat-raised-button color="primary">
+      <mat-icon fontIcon="check"></mat-icon>
+      {{ clienteNew.id ? "Actualizar" : "Guardar" }}
+    </button>
+
+    <button type="button" (click)="cancelar()" mat-raised-button color="warn">
+      <mat-icon fontIcon="cancel"></mat-icon>
+      Cancelar
+    </button>
+  </div>
+</form>

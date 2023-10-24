@@ -1,0 +1,39 @@
+<mat-card class="example-card" *ngIf="cliente">
+  <mat-card-header>
+    {{ cliente.clienteDto.createAt }}
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ cliente.clienteDto.nombre }}</mat-card-title>
+    <mat-card-subtitle>{{ cliente.clienteDto.apellido }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ cliente.clienteDto.email }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="example-button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/clientes/edit', cliente.clienteDto.id]"
+      >
+        <mat-icon fontIcon="edit"></mat-icon>
+        Editar
+      </button>
+      <button mat-raised-button color="warn" [routerLink]="['/clientes/list']">
+        <mat-icon fontIcon="cancel"></mat-icon>
+        Cancelar
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="removeCliente(cliente.clienteDto.id)"
+      >
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="delete"
+        ></mat-icon>
+        Eliminar
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>
